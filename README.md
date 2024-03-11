@@ -13,4 +13,4 @@ GeeORM目前支持的特性有：
 通过该项目的练习可以学习到对SQL语句的封装以及如何使用reflect和interface{}实现多态的知识.
 
 reference:
-https://github.com/geektutu/7days-golang/tree/master/gee-orm
+github.com/geektutu/7days-golang/tree/master/gee-orm

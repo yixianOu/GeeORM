@@ -19,12 +19,12 @@ GeeORM目前支持的特性有：
  * log包 :支持日志分级（Info、Error、Disabled）。不同层级日志显示时使用不同的颜色区分。显示打印日志代码对应的文件名和行号。
  * schema包 :对象(object)和表(table)的转换。实现 Parse 函数，将任意的对象解析为 Schema 实例。将对象各字段的value平铺，以便传入sql语句
  * session包 :用于实现与数据库的交互。
-    * 1)hooks.go :
-    * 2)raw.go :包含Session结构体，可直接调用 SQL 语句进行原生交互。
-    * 3)record.go :实现记录增删查改相关的代码，根据查找结果构造对象，执行完整的 SQL 语句。
+    * 1)hooks.go :实现钩子
+    * 2)raw.go :包含Session结构体，可直接调用 SQL 语句进行原生交互。不支持链式，但可生成多个sql语句并储存以便一并执行
+    * 3)record.go :实现记录增删查改相关的代码。根据查找结果构造对象。链式调用子句，以执行完整的 SQL 语句。
     * 4)table.go :放置操作数据库表相关的代码。Model调用Parse生成表，以便执行表的增删
-    * 5)transaction.go :
- * geeorm.go :包含GeeORM 与用户交互的入口---Engine，负责交互前的准备工作（比如连接/测试数据库，创建session），交互后的收尾工作（关闭连接）。
+    * 5)transaction.go :支持事务
+ * geeorm.go :包含GeeORM 与用户交互的入口---Engine，负责交互前的准备工作（比如连接/测试数据库，创建session），交互后的收尾工作（关闭连接）。数据库表的Migrate
 
 本项目是对geektutu的"7天用Go从零实现ORM框架GeeORM"教程的复现.
 通过该项目的练习可以学习到对SQL语句的封装以及如何使用reflect和interface{}实现多态的知识.

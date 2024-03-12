@@ -11,7 +11,7 @@ GeeORM目前支持的特性有：
 
 各模块及其功能：
  * clause包 ：子句(clause) 构成。
-    * 1)clause.go :拼接各个独立的子句。
+    * 1)clause.go :负责生成特定的子句并拼接各个子句。
     * 2)generator.go :实现各个子句的生成规则。
  * dialect包
     * 1)dialect.go :将Go 语言的类型映射为数据库中的类型。隔离不同数据库之间的差异，便于扩展
